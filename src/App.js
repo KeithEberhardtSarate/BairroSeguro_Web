@@ -1,18 +1,28 @@
 import React, { Component }  from 'react';
 import './App.css';
 import {useSelector} from 'react-redux'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import NavBar from './components/navbar';
 
 function App() {
   const contaList = useSelector((state) => state.contas.value)
   return (
-    <div className="App">
-      {""}
-      <div>
-        {contaList.map(conta => {
-          return <h1>{conta.nome}</h1>
-        })}
+    <Router>
+      <div className="App">
+        {""}
+        <NavBar />
+        <div className='content'>
+          <Switch>
+            <Route exact path="/">
+              <div>Home</div>
+            </Route>
+            <Route exact path="/teste">
+              <div>Teste</div>
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

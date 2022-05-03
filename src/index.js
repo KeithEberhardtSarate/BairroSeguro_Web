@@ -9,6 +9,8 @@ import { Provider } from 'react-redux'
 import usersReducer from './features/Users'
 import contasReducer from './features/Contas'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const store = configureStore({
   reducer: {
     contas: contasReducer,
