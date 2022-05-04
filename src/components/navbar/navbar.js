@@ -17,7 +17,7 @@ const NavBar = () => {
             <Nav className="me-auto">
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/contas">Contas</Nav.Link>
-                <Nav.Link href="#link">Usuários</Nav.Link>
+                <Nav.Link href="/usuarios">Usuários</Nav.Link>
                 <Nav.Link href="#link">Configurações</Nav.Link>
             </Nav>
             <Nav className="right-nav">

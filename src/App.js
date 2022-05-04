@@ -1,13 +1,13 @@
 import React, { Component }  from 'react';
 import './App.css';
-import {useSelector} from 'react-redux'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+
 import NavBar from './components/navbar/navbar';
 import Contas from './pages/Contas';
 import Home from './pages/Home';
+import Usuarios from './pages/Usuarios';
 
 function App() {
-  const contaList = useSelector((state) => state.contas.value)
   return (
     <Router>
       <div className="App">
@@ -20,6 +20,9 @@ function App() {
             </Route>
             <Route path="/contas">
               <Contas />
+            </Route>
+            <Route path="/usuarios">
+              <Usuarios />
             </Route>
           </Switch>
         </div>
