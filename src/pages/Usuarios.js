@@ -2,15 +2,21 @@ import React, { Component }  from 'react';
 import { connect } from 'react-redux';
 
 import { fetchUsuarios } from "../actions";
+import { openModal } from "../actions";
 
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import FullPageLoader from '../components/FullPageLoader/FullPageLoader'
+import NovoUsuarioModal from '../components/NovoUsuarioModal/NovoUsuarioModal'
 
 class Usuarios extends React.Component {
     componentDidMount() {
       this.props.fetchUsuarios();
+    }
+
+    handleOpenModal = () => {
+        this.props.openModal();
     }
   
     renderList() {
@@ -36,7 +42,7 @@ class Usuarios extends React.Component {
                                         <td>{usuario.telefone}</td>
                                         <td>{usuario.tipo}</td>
                                         <td>
-                                            <Button variant="primary" size="sm">Editar</Button>{' '}
+                                            <Button variant="primary" size="sm" onClick={this.handleOpenModal}>Editar</Button>{' '}
                                             <Button variant="danger" size="sm">Excluir</Button>
                                         </td>
                                     </tr>
@@ -44,6 +50,7 @@ class Usuarios extends React.Component {
                         </tbody>
                     </Table>
                     <FullPageLoader />
+                    <NovoUsuarioModal />                    
                 </div>                
     }
     
@@ -58,5 +65,5 @@ class Usuarios extends React.Component {
   
   export default connect(
     mapStateToProps,
-    { fetchUsuarios }
+    { fetchUsuarios, openModal }
   )(Usuarios);

@@ -37,3 +37,11 @@ export const showLoader = () => dispatch => {
 export const hideLoader = () => dispatch => {
     dispatch({ type: 'HIDE_LOADER'});
 }
+
+export const openModal = () => dispatch => {
+    dispatch({ type: 'OPEN_NOVO_USUARIO_MODAL'});
+}
+
+export const closeModal = () => dispatch => {
+    dispatch({ type: 'CLOSE_NOVO_USUARIO_MODAL'});
+}
