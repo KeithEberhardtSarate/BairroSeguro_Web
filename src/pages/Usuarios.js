@@ -6,6 +6,7 @@ import { fetchUsuarios } from "../actions";
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import FullPageLoader from '../components/FullPageLoader/FullPageLoader'
 
 class Usuarios extends React.Component {
     componentDidMount() {
@@ -42,16 +43,17 @@ class Usuarios extends React.Component {
                             })}                  
                         </tbody>
                     </Table>
-                </div>
+                    <FullPageLoader />
+                </div>                
     }
-  
-    render() {
+    
+    render() {        
       return <Container>{this.renderList()}</Container>;
     }
   }
   
   const mapStateToProps = state => {
-    return { usuarios: state.usuarios };
+    return { usuarios: state.usuarios.usuarios };
   };
   
   export default connect(

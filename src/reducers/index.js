@@ -4,5 +4,5 @@ import usuarios from './usuarios';
 
 export default combineReducers({
   contas: contas,
-  usuarios: usuarios
+  usuarios: usuarios,
 });

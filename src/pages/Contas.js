@@ -6,6 +6,7 @@ import { fetchContas } from "../actions";
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import FullPageLoader from '../components/FullPageLoader/FullPageLoader'
 
 class Contas extends React.Component {
     componentDidMount() {
@@ -43,6 +44,7 @@ class Contas extends React.Component {
                             })}                  
                         </tbody>
                     </Table>
+                    <FullPageLoader />
                 </div>
     }
   
@@ -52,7 +54,7 @@ class Contas extends React.Component {
   }
   
   const mapStateToProps = state => {
-    return { contas: state.contas };
+    return { contas: state.contas.contas };
   };
   
   export default connect(

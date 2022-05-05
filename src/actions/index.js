@@ -14,12 +14,14 @@ export const fetchContas = () => async dispatch => {
     const response = await jsonPlaceHolder.get('/conta');   
   
     dispatch({ type: 'FETCH_CONTAS', payload: response.data });
+    dispatch({ type: 'HIDE_LOADER'});
 };
 
 export const fetchUsuarios = id => async dispatch => {
     const response = await jsonPlaceHolder.get('/usuario');
   
     dispatch({ type: 'FETCH_USUARIOS', payload: response.data });
+    dispatch({ type: 'HIDE_LOADER'});
 };
 
 // export const fetchUsuario = id => async dispatch => {
@@ -27,3 +29,11 @@ export const fetchUsuarios = id => async dispatch => {
   
 //     dispatch({ type: 'FETCH_USUARIOS', payload: response.data });
 // };
+
+export const showLoader = () => dispatch => {
+    dispatch({ type: 'SHOW_LOADER'});
+}
+
+export const hideLoader = () => dispatch => {
+    dispatch({ type: 'HIDE_LOADER'});
+}
