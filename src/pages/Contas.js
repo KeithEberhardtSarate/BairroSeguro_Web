@@ -2,6 +2,8 @@ import React, { Component }  from 'react';
 import { connect } from 'react-redux';
 
 import { fetchContas } from "../actions";
+import { ativaConta } from "../actions";
+import { desativaConta } from "../actions";
 
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
@@ -12,6 +14,20 @@ class Contas extends React.Component {
     componentDidMount() {
       this.props.fetchContas();
     }
+
+    handleAtivarConta = (conta) => {
+      const self = this;
+      if(conta.isAtiva){
+        self.props.desativaConta(conta.id).then((res) => {
+          self.props.fetchContas();
+        });
+      }else{
+        self.props.ativaConta(conta.id).then((res) => {
+          debugger
+          self.props.fetchContas();
+        });        
+      }      
+  }
   
     renderList() {
       return <div id="contasPage">
@@ -39,7 +55,11 @@ class Contas extends React.Component {
                                         <td>{conta.qtdUsuarios}</td>
                                         <td>{conta.isAtiva ? 'Ativa' : 'Pendente'}</td>
                                         <td>{conta.dataCriacao}</td>
-                                        <td><Button variant="primary" size="sm">{conta.isAtiva ? 'Desativar' : 'Ativar'}</Button></td>
+                                        <td>{conta.isAtiva 
+                                            ? <Button variant="primary" size="sm" onClick={() => this.handleAtivarConta(conta)}>Desativar</Button>
+                                            : <Button variant="danger" size="sm" onClick={() => this.handleAtivarConta(conta)}>Ativar</Button>
+                                          }
+                                        </td>                                          
                                     </tr>
                             })}                  
                         </tbody>
@@ -59,5 +79,5 @@ class Contas extends React.Component {
   
   export default connect(
     mapStateToProps,
-    { fetchContas }
+    { fetchContas, ativaConta, desativaConta }
   )(Contas);

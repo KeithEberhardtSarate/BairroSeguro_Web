@@ -8,9 +8,13 @@ export default (state = INTIAL_STATE, action) => {
       case 'FETCH_CONTAS':
         return { ...state, contas: action.payload };
       case 'SHOW_LOADER':
-          return { ...state, loading:true };
+        return { ...state, loading:true };
       case 'HIDE_LOADER':
-          return { ...state, loading:false };
+        return { ...state, loading:false };
+      case 'ATIVA_CONTA':
+        return state;
+      case 'DESATIVA_CONTA':
+        return state;
       default:
         return state;
     }

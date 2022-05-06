@@ -45,3 +45,17 @@ export const openModal = () => dispatch => {
 export const closeModal = () => dispatch => {
     dispatch({ type: 'CLOSE_NOVO_USUARIO_MODAL'});
 }
+
+export const ativaConta = id => async dispatch => {
+    dispatch({ type: 'SHOW_LOADER'});
+    const response = await jsonPlaceHolder.patch(`/conta/ativar/${id}`, {});  
+  
+    dispatch({ type: 'ATIVA_CONTA'});
+};
+
+export const desativaConta = id => async dispatch => {
+    dispatch({ type: 'SHOW_LOADER'});
+    const response = await jsonPlaceHolder.patch(`/conta/desativar/${id}`, {});
+  
+    dispatch({ type: 'DESATIVA_CONTA'});
+};
