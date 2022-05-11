@@ -28,16 +28,16 @@
   color: #61dafb;
 }
 
-#contasPage h1{
+.page-title{
+  text-align: left;
+}
+.page-title h1{
   font-size: 1.4em;
-  float: left;
   margin-top: 10px;
 }
-
-#usuariosPage h1{
-  font-size: 1.4em;
-  float: left;
-  margin-top: 10px;
+.crud-action-container{
+  padding: 0 0 10px 0;
+  text-align: right;
 }
 
 @keyframes App-logo-spin {

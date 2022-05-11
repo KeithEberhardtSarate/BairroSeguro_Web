@@ -23,15 +23,16 @@ class Contas extends React.Component {
         });
       }else{
         self.props.ativaConta(conta.id).then((res) => {
-          debugger
           self.props.fetchContas();
         });        
       }      
   }
   
     renderList() {
-      return <div id="contasPage">
-                    <h1>Contas</h1>           
+      return <div id="contasPage">                    
+                    <div className='page-title'>
+                      <h1>Contas</h1>
+                    </div>            
                     <Table striped bordered hover size="sm">
                         <thead>
                             <tr>

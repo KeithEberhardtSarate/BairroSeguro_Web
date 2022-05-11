@@ -19,8 +19,9 @@ export const fetchContas = () => async dispatch => {
 
 export const fetchUsuarios = id => async dispatch => {
     const response = await jsonPlaceHolder.get('/usuario');
+    const usuarios = response.data.filter(x => x.tipo != 'morador');
   
-    dispatch({ type: 'FETCH_USUARIOS', payload: response.data });
+    dispatch({ type: 'FETCH_USUARIOS', payload: usuarios });
     dispatch({ type: 'HIDE_LOADER'});
 };
 
@@ -58,4 +59,16 @@ export const desativaConta = id => async dispatch => {
     const response = await jsonPlaceHolder.patch(`/conta/desativar/${id}`, {});
   
     dispatch({ type: 'DESATIVA_CONTA'});
+};
+
+export const saveUsuarioState = novoUsuarioForm => async dispatch => {  
+    dispatch({ type: 'SAVE_USUARIO_STATE', payload: novoUsuarioForm });
+};
+
+export const createUsuario = formValues => async dispatch => {
+    debugger
+    dispatch({ type: 'SHOW_LOADER'});
+    const response = await jsonPlaceHolder.post('/usuario', { ...formValues });
+    debugger
+    dispatch({ type: 'CREATE_USUARIO'});
 };

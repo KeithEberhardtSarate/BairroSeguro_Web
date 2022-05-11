@@ -21,7 +21,12 @@ class Usuarios extends React.Component {
   
     renderList() {
       return <div id="usuariosPage">
-                    <h1>Usuários</h1>           
+                    <div className='page-title'>
+                        <h1>Usuários</h1>
+                    </div>                    
+                    <div className='crud-action-container'>
+                        <Button variant="dark" onClick={this.handleOpenModal}>Adicionar</Button>
+                    </div>          
                     <Table striped bordered hover size="sm">
                         <thead>
                             <tr>
@@ -42,7 +47,7 @@ class Usuarios extends React.Component {
                                         <td>{usuario.telefone}</td>
                                         <td>{usuario.tipo}</td>
                                         <td>
-                                            <Button variant="primary" size="sm" onClick={this.handleOpenModal}>Editar</Button>{' '}
+                                            <Button variant="primary" size="sm">Editar</Button>{' '}
                                             <Button variant="danger" size="sm">Excluir</Button>
                                         </td>
                                     </tr>

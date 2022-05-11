@@ -30,7 +30,6 @@ class FullPageLoader extends React.Component{
 
 
 const mapStateToProps = state => {
-    debugger
    return { loading: state.usuarios.loading };
  };
  
