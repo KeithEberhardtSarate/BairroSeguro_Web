@@ -18,7 +18,7 @@ const NavBar = () => {
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/contas">Contas</Nav.Link>
                 <Nav.Link href="/usuarios">Usuários</Nav.Link>
-                <Nav.Link href="#link">Configurações</Nav.Link>
+                {/* <Nav.Link href="#link">Configurações</Nav.Link> */}
             </Nav>
             <Nav className="right-nav">
                 <Nav.Link href="#link">Sair</Nav.Link>

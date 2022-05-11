@@ -16,6 +16,7 @@ import Row from 'react-bootstrap/Row';
 class NovoUsuarioModal extends React.Component{ 
     
     handleCloseModal = () => {
+        this.clearUsuarioState();
         this.props.closeModal();
     }
 
@@ -132,17 +133,17 @@ class NovoUsuarioModal extends React.Component{
                                 </Form.Control>                        
                             </Form.Group>
                         </Row>                     
-                        <Button onClick={() => this.handleSubmit()}>Salvar</Button>
+                        {/* <Button onClick={() => this.handleSubmit()}>Salvar</Button> */}
                     </Form>
                 </Modal.Body>
-                {/* <Modal.Footer>
+                <Modal.Footer>
                     <Button variant="secondary" onClick={this.handleCloseModal}>
                         Fechar
                     </Button>
-                    <Button variant="primary" onClick={this.handleCloseModal}>
+                    <Button variant="primary" onClick={() => this.handleSubmit()}>
                         Salvar
                     </Button>
-                </Modal.Footer> */}
+                </Modal.Footer>
             </Modal>
         );
     }
