@@ -25,6 +25,13 @@ export const fetchUsuarios = id => async dispatch => {
     dispatch({ type: 'HIDE_LOADER'});
 };
 
+export const fetchDashboard = id => async dispatch => {
+    const response = await jsonPlaceHolder.get('/dashboard');
+
+    dispatch({ type: 'FETCH_DASHBOARD', payload: response.data });
+    dispatch({ type: 'HIDE_LOADER'});
+};
+
 // export const fetchUsuario = id => async dispatch => {
 //     const response = await jsonPlaceholder.get(`/usuario/${id}`);
   

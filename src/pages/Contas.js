@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import Moment from 'react-moment';
 import { connect } from 'react-redux';
 
 import { fetchContas } from "../actions";
@@ -55,7 +56,7 @@ class Contas extends React.Component {
                                         <td>{conta.telefone}</td>
                                         <td>{conta.qtdUsuarios}</td>
                                         <td>{conta.isAtiva ? 'Ativa' : 'Pendente'}</td>
-                                        <td>{conta.dataCriacao}</td>
+                                        <td><Moment format="DD/MM/YYYY">{conta.dataCriacao}</Moment></td>
                                         <td>{conta.isAtiva 
                                             ? <Button variant="primary" size="sm" onClick={() => this.handleAtivarConta(conta)}>Desativar</Button>
                                             : <Button variant="danger" size="sm" onClick={() => this.handleAtivarConta(conta)}>Ativar</Button>
